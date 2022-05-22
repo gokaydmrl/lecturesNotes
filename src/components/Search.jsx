@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Note from "./Note";
 
 const Search = ({ notes }) => {
   const [filtered, setFiltered] = useState("");
@@ -8,24 +9,38 @@ const Search = ({ notes }) => {
     setFiltered(e.target.value);
   };
 
-  const filteredLectures = notes.filter((note) => {
-    return Object.keys(notes).some(key => notes[key].toString().toLowerCase().includes(filtered.toLowerCase()));
-  });
+  // const filteredLectures = notes.filter((note) => {
+  //   return Object.keys(notes).some((key) =>
+  //     notes[key].toString().toLowerCase().includes(filtered.toLowerCase())
+  //   );
+  // });
 
-  console.log(filteredLectures);
+  const filteredLectures =
+    notes.filter((note) => 
+      note.name.toString().toLowerCase().includes(filtered.toLowerCase())
+      || note.code.toString().toLowerCase().includes(filtered.toLowerCase())
+    );
+
+  // console.log(filteredLectures);
 
   return (
     <div>
       <input
-        placeholder="search course name or course code"
+        placeholder="name or course code"
         value={filtered}
         onChange={handleChange}
       />
 
-      {filteredLectures.map((note) => {
+      {filteredLectures.map((filteredLecture, index) => {
         return (
-          <p key={note.index}>{note.name}</p>
-        )
+          <Note
+            key={index}
+            id={index}
+            name={filteredLecture.name}
+            code={filteredLecture.code}
+            lecture={filteredLecture.lecture}
+          />
+        );
       })}
     </div>
   );

@@ -40,17 +40,7 @@ const NoteArea = ({ onAdd, notes }) => {
         <button>finally ended...</button>
       </form>
 
-       {notes.map((note, index) => {
-        return (
-          <Note
-            key={index}
-            id={index}
-            name={note.name}
-            code={note.code}
-            lecture={note.lecture}
-          />
-        )
-      })}
+       
     </>
   );
 };
