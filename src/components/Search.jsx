@@ -15,11 +15,11 @@ const Search = ({ notes }) => {
   //   );
   // });
 
-  const filteredLectures =
-    notes.filter((note) => 
-      note.name.toString().toLowerCase().includes(filtered.toLowerCase())
-      || note.code.toString().toLowerCase().includes(filtered.toLowerCase())
-    );
+  const filteredLectures = notes.filter(
+    (note) =>
+      note.name.toString().toLowerCase().includes(filtered.toLowerCase()) ||
+      note.code.toString().toLowerCase().includes(filtered.toLowerCase())
+  );
 
   // console.log(filteredLectures);
 
