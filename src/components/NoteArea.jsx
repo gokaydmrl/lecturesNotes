@@ -57,7 +57,7 @@ const NoteArea = ({ onAdd, notes, setNotes }) => {
         </div>
       </form>
 
-      <Search notes={notes} />
+      <Search notes={notes} setNotes={setNotes}/>
     </>
   );
 };

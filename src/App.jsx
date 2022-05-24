@@ -19,7 +19,7 @@ function App() {
     <div>
       <Header />
       <GetDate />
-      <NoteArea onAdd={AddLecture} notes={notes} />
+      <NoteArea onAdd={AddLecture} notes={notes} setNotes={setNotes}/>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Note from "./Note";
 
-const Search = ({ notes }) => {
+const Search = ({ notes, setNotes }) => {
   const [filtered, setFiltered] = useState("");
 
   const handleChange = (e) => {
@@ -34,7 +34,7 @@ const Search = ({ notes }) => {
       {filteredLectures.map((filteredLecture, index) => {
         return (
           <Note
-          
+          setNotes={setNotes}
             key={index}
             id={index}
             name={filteredLecture.name}
