@@ -1,12 +1,14 @@
 import React from "react";
 import GetDate from "./GetDate";
 
-const Note = ({ name, code, lecture, notes, id }) => {
-  const deleteNote = (id) => {
+const Note = ({ name, code, lecture, notes, id, }) => {
+  const deleteNote = () => {
     notes.filter((item, index) => {
       return index !== id;
     });
   };
+
+
 
   return (
     <div className="noteItem">

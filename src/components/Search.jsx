@@ -34,7 +34,7 @@ const Search = ({ notes }) => {
       {filteredLectures.map((filteredLecture, index) => {
         return (
           <Note
-            
+          
             key={index}
             id={index}
             name={filteredLecture.name}

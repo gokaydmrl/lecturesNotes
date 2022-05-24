@@ -3,11 +3,11 @@ import { useState } from "react";
 import Note from "./Note";
 import Search from "./Search";
 
-const NoteArea = ({ onAdd, notes }) => {
+const NoteArea = ({ onAdd, notes, setNotes }) => {
   const [lecture, setLecture] = useState({
     name: "",
     code: "",
-    lecture: ""
+    lecture: "",
   });
 
   const handleChange = (e) => {
@@ -22,12 +22,11 @@ const NoteArea = ({ onAdd, notes }) => {
   };
 
   const handleSubmit = (e) => {
-    // property çağırıyoruz as a method
-    onAdd(lecture);
+    {lecture.name === "" && lecture.code === "" ? false : onAdd(lecture)};
     setLecture({
       name: "",
       code: "",
-      lecture: ""
+      lecture: "",
     });
     e.preventDefault();
   };
@@ -35,15 +34,30 @@ const NoteArea = ({ onAdd, notes }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} name="name" value={lecture.name} placeholder="Course Name"/>
-        <input onChange={handleChange} name="code" value={lecture.code} placeholder="Course Code"/>
-        <textarea onChange={handleChange} name="lecture" value={lecture.lecture} placeholder="Your Notes..."/>
+        <input
+          onChange={handleChange}
+          name="name"
+          value={lecture.name}
+          placeholder="Course Name"
+        />
+        <input
+          onChange={handleChange}
+          name="code"
+          value={lecture.code}
+          placeholder="Course Code"
+        />
+        <textarea
+          onChange={handleChange}
+          name="lecture"
+          value={lecture.lecture}
+          placeholder="Your Notes..."
+        />
         <div>
-        <button>finally ended...</button></div> 
+          <button>finally ended...</button>
+        </div>
       </form>
 
-      <Search notes={notes}/>
-      
+      <Search notes={notes} />
     </>
   );
 };
