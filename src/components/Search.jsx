@@ -32,7 +32,7 @@ const Search = ({ notes, setNotes }) => {
             name={filteredLecture.name}
             code={filteredLecture.code}
             lecture={filteredLecture.lecture}
-            notes={filteredLectures}
+            notes={notes}
           />
         );
       })}
