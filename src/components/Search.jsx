@@ -17,16 +17,11 @@ const Search = ({ notes }) => {
       note.code.toString().toLowerCase().includes(filtered.toLowerCase())
   );
 
-  // const deleteNote = (id) => filteredLectures.filter((lecItem, index) => {
-  //   return (id !== lecItem.index);
-  // });
+  
 
-  const deleteNote = (id) => {
-    filteredLectures.filter((lecItem, index) => {
-      return index !== id;
-  })}
+  
 
-  // console.log(filteredLectures);
+  
 
   return (
     <div>
@@ -39,12 +34,13 @@ const Search = ({ notes }) => {
       {filteredLectures.map((filteredLecture, index) => {
         return (
           <Note
-            onDelete={deleteNote}
+            
             key={index}
             id={index}
             name={filteredLecture.name}
             code={filteredLecture.code}
             lecture={filteredLecture.lecture}
+            notes={filteredLectures}
           />
         );
       })}
