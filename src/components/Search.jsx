@@ -9,19 +9,11 @@ const Search = ({ notes, setNotes }) => {
     setFiltered(e.target.value);
   };
 
-  
-
   const filteredLectures = notes.filter(
     (note) =>
       note.name.toString().toLowerCase().includes(filtered.toLowerCase()) ||
       note.code.toString().toLowerCase().includes(filtered.toLowerCase())
   );
-
-  
-
-  
-
-  
 
   return (
     <div>
@@ -34,7 +26,7 @@ const Search = ({ notes, setNotes }) => {
       {filteredLectures.map((filteredLecture, index) => {
         return (
           <Note
-          setNotes={setNotes}
+            setNotes={setNotes}
             key={index}
             id={index}
             name={filteredLecture.name}
