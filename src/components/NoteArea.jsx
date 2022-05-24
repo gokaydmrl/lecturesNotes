@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Note from "./Note";
+import Search from "./Search";
 
 const NoteArea = ({ onAdd, notes }) => {
   const [lecture, setLecture] = useState({
@@ -36,11 +37,13 @@ const NoteArea = ({ onAdd, notes }) => {
       <form onSubmit={handleSubmit}>
         <input onChange={handleChange} name="name" value={lecture.name} placeholder="Course Name"/>
         <input onChange={handleChange} name="code" value={lecture.code} placeholder="Course Code"/>
-        <input onChange={handleChange} name="lecture" value={lecture.lecture} placeholder="Your Notes..."/>
-        <button>finally ended...</button>
+        <textarea onChange={handleChange} name="lecture" value={lecture.lecture} placeholder="Your Notes..."/>
+        <div>
+        <button>finally ended...</button></div> 
       </form>
 
-       
+      <Search notes={notes}/>
+      
     </>
   );
 };

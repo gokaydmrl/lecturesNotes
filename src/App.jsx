@@ -23,7 +23,7 @@ function App() {
       <Header />
       <GetDate />
       <NoteArea onAdd={AddLecture} notes={notes}/>
-      <Search notes={notes}/>
+      
       
     </div>
   );

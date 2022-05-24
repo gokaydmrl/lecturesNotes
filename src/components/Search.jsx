@@ -9,17 +9,22 @@ const Search = ({ notes }) => {
     setFiltered(e.target.value);
   };
 
-  // const filteredLectures = notes.filter((note) => {
-  //   return Object.keys(notes).some((key) =>
-  //     notes[key].toString().toLowerCase().includes(filtered.toLowerCase())
-  //   );
-  // });
+  
 
   const filteredLectures = notes.filter(
     (note) =>
       note.name.toString().toLowerCase().includes(filtered.toLowerCase()) ||
       note.code.toString().toLowerCase().includes(filtered.toLowerCase())
   );
+
+  // const deleteNote = (id) => filteredLectures.filter((lecItem, index) => {
+  //   return (id !== lecItem.index);
+  // });
+
+  const deleteNote = (id) => {
+    filteredLectures.filter((lecItem, index) => {
+      return index !== id;
+  })}
 
   // console.log(filteredLectures);
 
@@ -34,6 +39,7 @@ const Search = ({ notes }) => {
       {filteredLectures.map((filteredLecture, index) => {
         return (
           <Note
+            onDelete={deleteNote}
             key={index}
             id={index}
             name={filteredLecture.name}

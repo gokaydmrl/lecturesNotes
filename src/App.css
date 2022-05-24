@@ -41,3 +41,10 @@ form {
 form > button {
   margin-bottom: 6px;
 }
+
+textarea {
+  background-color: aquamarine;
+  width: 300px;
+  height: 200px;
+  align-items: center;
+}
